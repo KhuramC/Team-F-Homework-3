@@ -1,4 +1,4 @@
-package inventorymanagement;
+package products;
 
 public class MediaProduct {
 
