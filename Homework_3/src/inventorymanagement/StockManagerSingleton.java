@@ -57,7 +57,8 @@ public class StockManagerSingleton {
 			String line = sc.nextLine();
 			String[] parts = line.split(","); //Split by comma
 			if(parts.length != 5) { //Faulty line
-				continue;
+				System.out.println("An invalid line has been found. Please check to see if the file has been formatted correctly.");
+				return false;
 			}
 			if(parts[0].equals("Type")){ //First line should not create an object//
 				continue;	
@@ -67,6 +68,11 @@ public class StockManagerSingleton {
 			String title = parts[1];
 			double price = Double.parseDouble(parts[2]);
 			int year = Integer.parseInt(parts[3]);
+			
+			
+			
+			
+			//see if this errors out(put everything in try if so) if an incorrect enum is passed//
 			Genre genre = Genre.valueOf(parts[4]);
 			
 			switch(type) { //creates product based on their type and adds to ArrayList//
@@ -86,7 +92,7 @@ public class StockManagerSingleton {
 		}
 		if(p.size() == 0) { //Check for if something went wrong//
 			System.out.println("File is either empty or has been formatted incorrectly.");
-			System.out.println("Make sure the file is in 'Type','Title','Price','Year','Genre' format");
+			System.out.println("Make sure the file is in 'Type','Title','Price','Year','Genre' format.");
 			return false;
 		}
 		
