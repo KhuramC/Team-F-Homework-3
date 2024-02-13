@@ -17,7 +17,7 @@ public class StockManagerSingleton {
 	 * Creates a single instance if it has not been created yet.
 	 * @return the instance of the StockManagerSingleton.
 	 */
-	public StockManagerSingleton getInstance() {
+	public static StockManagerSingleton getInstance() {
 		if (instance == null) {
 			instance = new StockManagerSingleton();
 		}

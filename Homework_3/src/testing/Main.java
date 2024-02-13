@@ -1,11 +1,14 @@
 package testing;
 
+import inventorymanagement.StockManagerSingleton;
+
 public class Main {
 
 
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		StockManagerSingleton insta = StockManagerSingleton.getInstance();
 
 	}
 
