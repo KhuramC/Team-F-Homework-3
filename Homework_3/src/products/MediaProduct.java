@@ -57,4 +57,19 @@ public class MediaProduct {
 		String s = title + " is worth $" + price + ", was released in the year " + year + ", and is from the " + genre +" genre.";
 		return s;
 	}
+	
+	/*
+	 * Overridden equals method to compare two MediaProduct objects.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		MediaProduct p = ((MediaProduct)obj);
+		if(this.title.equals(p.getTitle()) && 
+				this.price == p.getPrice() && 
+				this.year == p.getYear() && 
+				this.genre.equals(p.getGenre())) {
+			return true;
+		}
+		return false;
+	}
 }
