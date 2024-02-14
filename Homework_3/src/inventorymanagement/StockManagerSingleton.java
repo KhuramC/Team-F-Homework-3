@@ -3,6 +3,7 @@ package inventorymanagement;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import products.*;
@@ -109,13 +110,31 @@ public class StockManagerSingleton {
 	
 	//required//
 	public boolean addItem(MediaProduct product) {
-		return true;
+		if (product != null) {
+			//Assuming product is correctly made.
+			if (!products.contains(product)) {
+				products.add(product);
+				return true;
+			}
+		}
+		return false; //Failed to add
 	}
 	
 	//required//
 	public boolean removeItem(MediaProduct product) {
-		return true;
+		//Use iterator to iterate and remove matching product.
+		Iterator<MediaProduct> iterator = products.iterator();
 		
+		while (iterator.hasNext()) {
+			MediaProduct existingProduct = iterator.next();
+			
+			if (existingProduct.equals(product)) {
+				iterator.remove();
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	//required
