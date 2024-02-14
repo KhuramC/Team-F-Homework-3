@@ -121,7 +121,11 @@ public class StockManagerSingleton {
 		return false; //Failed to add
 	}
 	
-	//required//
+	/**
+	 * Iterates through current inventory and removes item that is equal to the product parameter.
+	 * @param product
+	 * @return boolean
+	 */
 	public boolean removeItem(MediaProduct product) {
 		//Use iterator to iterate and remove matching product.
 		Iterator<MediaProduct> iterator = products.iterator();
@@ -134,7 +138,6 @@ public class StockManagerSingleton {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 	
