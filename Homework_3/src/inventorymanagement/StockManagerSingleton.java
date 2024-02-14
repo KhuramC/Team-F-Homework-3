@@ -152,6 +152,9 @@ public class StockManagerSingleton {
 	public boolean saveStock() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(inventoryFilePath, true));
+			// Write header row
+			bw.write("Type,Title,Price,Year,Genre");
+			bw.newLine();
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
