@@ -157,8 +157,15 @@ public class StockManagerSingleton {
 		return lowPriceProducts;
 	}
 	
-	//required//
+	/**
+	 * Prints out the MediaProducts within the given list.
+	 * @param productList list that will have contents printed out.
+	 */
 	public void printListOfMediaProduct(ArrayList<MediaProduct>productList) {
+		System.out.println("Inventory of given product list:");
+		for(MediaProduct product: productList) {
+			System.out.println(product);
+		}
 		
 	}
 	
