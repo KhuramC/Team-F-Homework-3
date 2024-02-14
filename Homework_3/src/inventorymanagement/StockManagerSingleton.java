@@ -142,9 +142,19 @@ public class StockManagerSingleton {
 		return true;
 	}
 	
-	//required//
+	/**
+	 * Goes through current inventory to find products below a given price.
+	 * @param maxPrice The maximum price; nothing can be higher than this price.
+	 * @return ArrayList of Media Products below the max price.
+	 */
 	public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice){
-		return null;
+		ArrayList<MediaProduct> lowPriceProducts = new ArrayList<MediaProduct>();
+		for(MediaProduct product : this.products) {
+			if(product.getPrice() < maxPrice) {
+				lowPriceProducts.add(product);
+			}
+		}
+		return lowPriceProducts;
 	}
 	
 	//required//
