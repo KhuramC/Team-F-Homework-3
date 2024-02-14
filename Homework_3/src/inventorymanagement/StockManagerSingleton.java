@@ -105,6 +105,7 @@ public class StockManagerSingleton {
 	
 	//required//
 	public boolean updateItemPrice(MediaProduct product, double newPrice) {
+		product.setPrice(newPrice);
 		return true;
 	}
 	
