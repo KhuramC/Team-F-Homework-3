@@ -109,7 +109,11 @@ public class StockManagerSingleton {
 		return true;
 	}
 	
-	//required//
+	/**
+	 * Adds a new media product to the inventory. Fails if product is already in inventory.
+	 * @param product needed to be added.
+	 * @return boolean
+	 */
 	public boolean addItem(MediaProduct product) {
 		if (product != null) {
 			//Assuming product is correctly made.
@@ -123,7 +127,7 @@ public class StockManagerSingleton {
 	
 	/**
 	 * Iterates through current inventory and removes item that is equal to the product parameter.
-	 * @param product
+	 * @param product needed to be removed.
 	 * @return boolean
 	 */
 	public boolean removeItem(MediaProduct product) {
