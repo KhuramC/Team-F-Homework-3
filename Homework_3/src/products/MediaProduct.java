@@ -44,4 +44,9 @@ public class MediaProduct {
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
+	
+	public String toString() {
+		String s = title + " is worth $" + price + ", was released in the year " + year + ", and is from the " + genre +" genre.";
+		return s;
+	}
 }
