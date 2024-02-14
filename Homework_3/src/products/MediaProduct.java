@@ -30,7 +30,7 @@ public class MediaProduct {
 	}
 
 	public int getYear() {
-		return year;
+		return this.year;
 	}
 
 	public void setYear(int year) {
@@ -38,7 +38,7 @@ public class MediaProduct {
 	}
 
 	public Genre getGenre() {
-		return genre;
+		return this.genre;
 	}
 
 	public void setGenre(Genre genre) {
