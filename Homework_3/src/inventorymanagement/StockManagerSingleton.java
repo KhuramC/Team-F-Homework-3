@@ -2,6 +2,9 @@ package inventorymanagement;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -147,6 +150,13 @@ public class StockManagerSingleton {
 	
 	 // Saves the updated inventory back to the CSV file located at inventoryFilePath.
 	public boolean saveStock() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(inventoryFilePath, true));
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 		return true;
 	}
 	
