@@ -145,7 +145,7 @@ public class StockManagerSingleton {
 		return false;
 	}
 	
-	//required
+	 // Saves the updated inventory back to the CSV file located at inventoryFilePath.
 	public boolean saveStock() {
 		return true;
 	}
