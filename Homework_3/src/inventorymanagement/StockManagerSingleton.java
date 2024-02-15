@@ -196,7 +196,7 @@ public class StockManagerSingleton {
 	 * @return gives an array populated with vinyls from the MediaProduct array.
 	 */
 	public ArrayList<VinylRecordProduct>getVinylRecordList(ArrayList<MediaProduct> productList){
-		ArrayList<VinylRecordProduct> VinylArray = new ArrayList<VinylRecordProduct>();
+		ArrayList<VinylRecordProduct> vinylArray = new ArrayList<VinylRecordProduct>();
 		//Use iterator to iterate and remove matching product.
 		if(productList.isEmpty()) {
 			return null;
@@ -206,10 +206,10 @@ public class StockManagerSingleton {
 				MediaProduct existingProduct = iterator.next();
 				
 				if (existingProduct instanceof VinylRecordProduct) {
-					VinylArray.add((VinylRecordProduct) existingProduct);
+					vinylArray.add((VinylRecordProduct) existingProduct);
 				}
 			}
-		return VinylArray;
+		return vinylArray;
 		}
 	/*
 	 * Takes in MediaProduct list and finds the CDs in the list and adds them to a separate list.
@@ -217,7 +217,20 @@ public class StockManagerSingleton {
 	 * @return gives an array populated with CDs from the MediaProduct array.
 	 */
 	public ArrayList<CDRecordProduct>getCDRecordsList(ArrayList<MediaProduct> productList){
-		return null;
+		ArrayList<CDRecordProduct> cdArray = new ArrayList<CDRecordProduct>();
+		//Use iterator to iterate and remove matching product.
+		if(productList.isEmpty()) {
+			return null;
+		}
+		Iterator<MediaProduct> iterator = products.iterator();
+			while (iterator.hasNext()) {
+				MediaProduct existingProduct = iterator.next();
+				
+				if (existingProduct instanceof CDRecordProduct) {
+					cdArray.add((CDRecordProduct) existingProduct);
+				}
+			}
+		return cdArray;
 	}
 	
 	/*
