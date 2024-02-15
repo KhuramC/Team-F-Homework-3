@@ -157,16 +157,41 @@ public class StockManagerSingleton {
 	 // Saves the updated inventory back to the CSV file located at inventoryFilePath.
 	public boolean saveStock() {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(inventoryFilePath, true));
-			// Write header row
-			bw.write("Type,Title,Price,Year,Genre");
-			bw.newLine();
-			bw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
+	        BufferedWriter bw = new BufferedWriter(new FileWriter(inventoryFilePath));
+	        
+	        // Header row
+	        bw.write("Type,Title,Price,Year,Genre");
+	        bw.newLine();
+	        
+	        // The products information
+	        for (MediaProduct product : products) {
+	            String type = "";
+	            if (product instanceof CDRecordProduct) {
+	                type = "CD";
+	            } else if (product instanceof VinylRecordProduct) {
+	                type = "Vinyl";
+	            } else if (product instanceof TapeRecordProduct) {
+	                type = "Tape";
+	            }
+	            // Using get to get the products' information.
+	            String title = product.getTitle();
+	            double price = product.getPrice();
+	            int year = product.getYear();
+	            Genre genre = product.getGenre();
+
+	            // Write the product information to the file
+	            bw.write(type + "," + title + "," + price + "," + year + "," + genre);
+	            bw.newLine();
+	        }
+	        // Close Bw
+	        bw.close();
+	        // True if success
+	        return true;
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        // False if failed
+	        return false;
+	    }
 	}
 	
 	/**
