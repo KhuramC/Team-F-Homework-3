@@ -175,6 +175,10 @@ public class StockManagerSingleton {
 	 * @return ArrayList of Media Products below the max price.
 	 */
 	public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice){
+		if(this.products == null) {
+			System.out.println("Products not initialized. Please do so first.");
+			return null;
+		}
 		ArrayList<MediaProduct> lowPriceProducts = new ArrayList<MediaProduct>();
 		for(MediaProduct product : this.products) {
 			if(product.getPrice() < maxPrice) {
@@ -189,9 +193,14 @@ public class StockManagerSingleton {
 	 * @param productList list that will have contents printed out.
 	 */
 	public void printListOfMediaProduct(ArrayList<MediaProduct>productList) {
-		System.out.println("Inventory of given product list:");
-		for(MediaProduct product: productList) {
-			System.out.println(product);
+		if(this.products == null) {
+			System.out.println("Products not initialized. Please do so first.");
+			
+		}else {
+			System.out.println("Inventory of given product list:");
+			for(MediaProduct product: productList) {
+				System.out.println(product);
+			}	
 		}
 		
 	}
