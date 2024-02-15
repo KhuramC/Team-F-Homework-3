@@ -190,18 +190,41 @@ public class StockManagerSingleton {
 		
 	}
 	
-	//required//
+	/*
+	 * Takes in MediaProduct list and finds the vinyls in the list and adds them to a separate list.
+	 * @param productList list that will be scanned for the making of the viynls array.
+	 * @return gives an array populated with vinyls from the MediaProduct array.
+	 */
 	public ArrayList<VinylRecordProduct>getVinylRecordList(ArrayList<MediaProduct> productList){
-		return null;
-		
-	}
-	
-	//required//
+		ArrayList<VinylRecordProduct> VinylArray = new ArrayList<VinylRecordProduct>();
+		//Use iterator to iterate and remove matching product.
+		if(productList.isEmpty()) {
+			return null;
+		}
+		Iterator<MediaProduct> iterator = products.iterator();
+			while (iterator.hasNext()) {
+				MediaProduct existingProduct = iterator.next();
+				
+				if (existingProduct instanceof VinylRecordProduct) {
+					VinylArray.add((VinylRecordProduct) existingProduct);
+				}
+			}
+		return VinylArray;
+		}
+	/*
+	 * Takes in MediaProduct list and finds the CDs in the list and adds them to a separate list.
+	 * @param productList list that will be scanned for the making of the CD array.
+	 * @return gives an array populated with CDs from the MediaProduct array.
+	 */
 	public ArrayList<CDRecordProduct>getCDRecordsList(ArrayList<MediaProduct> productList){
 		return null;
 	}
 	
-	//required//
+	/*
+	 * Takes in MediaProduct list and finds the tape in the list and adds them to a separate list.
+	 * @param productList list that will be scanned for the making of the tape array.
+	 * @return gives an array populated with tape from the MediaProduct array.
+	 */
 	public ArrayList<TapeRecordProduct>getTapeRecordList(ArrayList<MediaProduct> productList){
 		return null;
 	}
