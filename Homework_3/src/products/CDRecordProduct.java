@@ -8,7 +8,7 @@ public class CDRecordProduct extends MediaProduct {
 
 	@Override
 	public String toString() {
-		String s = "Title= " + title + ", price= " + price + ", year= " + year + ", genre= " + genre;
+		String s = "The CD " + title + ", price= " + price + ", year= " + year + ", genre= " + genre;
 		return s;
 	}
 

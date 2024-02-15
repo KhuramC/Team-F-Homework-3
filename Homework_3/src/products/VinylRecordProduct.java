@@ -9,7 +9,7 @@ public class VinylRecordProduct extends MediaProduct {
 	
 	@Override
 	public String toString() {
-		String s = "Title= " + title + ", price= " + price + ", year= " + year + ", genre= " + genre;
+		String s = "The vinyl " + title + ", price= " + price + ", year= " + year + ", genre= " + genre;
 		return s;
 	}
 
