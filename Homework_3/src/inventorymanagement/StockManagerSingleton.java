@@ -239,7 +239,20 @@ public class StockManagerSingleton {
 	 * @return gives an array populated with tape from the MediaProduct array.
 	 */
 	public ArrayList<TapeRecordProduct>getTapeRecordList(ArrayList<MediaProduct> productList){
-		return null;
+		ArrayList<TapeRecordProduct> tapeArray = new ArrayList<TapeRecordProduct>();
+		//Use iterator to iterate and remove matching product.
+		if(productList.isEmpty()) {
+			return null;
+		}
+		Iterator<MediaProduct> iterator = products.iterator();
+			while (iterator.hasNext()) {
+				MediaProduct existingProduct = iterator.next();
+				
+				if (existingProduct instanceof TapeRecordProduct) {
+					tapeArray.add((TapeRecordProduct) existingProduct);
+				}
+			}
+		return tapeArray;
 	}
 
 }
