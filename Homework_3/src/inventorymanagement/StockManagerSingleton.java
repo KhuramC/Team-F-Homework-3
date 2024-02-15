@@ -48,6 +48,60 @@ public class StockManagerSingleton {
 		try { //Tries to read into file//
 			input = new FileInputStream(inventoryFilePath);
 			sc = new Scanner(input);
+			
+			ArrayList<MediaProduct> p = new ArrayList<MediaProduct>();
+			
+			while(sc.hasNextLine()) {
+				String line = sc.nextLine();
+				String[] parts = line.split(","); //Split by comma
+				if(parts.length != 5) { //Faulty line
+					System.out.println("An invalid line has been found. Please check to see if the file has been formatted correctly.");
+					sc.close();
+					input.close();
+					return false;
+				}
+				if(parts[0].equals("Type")){ //First line should not create an object//
+					continue;	
+				}
+				//based on ordering of csv file//
+				String type = parts[0];
+				String title = parts[1];
+				double price = Double.parseDouble(parts[2]);
+				int year = Integer.parseInt(parts[3]);
+				
+				
+				
+				
+				//see if this errors out(put everything in try if so) if an incorrect enum is passed//
+				Genre genre = Genre.valueOf(parts[4]);
+				
+				switch(type) { //creates product based on their type and adds to ArrayList//
+				case "CD":
+					CDRecordProduct cd = new CDRecordProduct(title,price,year,genre);
+					p.add(cd);
+					break;
+				case "Vinyl":
+					VinylRecordProduct vinyl = new VinylRecordProduct(title,price,year,genre);
+					p.add(vinyl);
+					break;
+				case "Tape":
+					TapeRecordProduct tape = new TapeRecordProduct(title,price,year,genre);
+					p.add(tape);
+					break;
+				}
+			}
+			if(p.size() == 0) { //Check for if something went wrong//
+				System.out.println("File is either empty or has been formatted incorrectly.");
+				System.out.println("Make sure the file is in 'Type','Title','Price','Year','Genre' format.");
+				sc.close();
+				input.close();
+				return false;
+			}
+			
+			this.products = p;
+			sc.close();
+			input.close();
+			return true;
 		}
 		catch(Exception e) { //Excepts if it doesn't work
 			e.printStackTrace();
@@ -55,55 +109,7 @@ public class StockManagerSingleton {
 			return false;
 		}
 		
-		ArrayList<MediaProduct> p = new ArrayList<MediaProduct>();
 		
-		while(sc.hasNextLine()) {
-			String line = sc.nextLine();
-			String[] parts = line.split(","); //Split by comma
-			if(parts.length != 5) { //Faulty line
-				System.out.println("An invalid line has been found. Please check to see if the file has been formatted correctly.");
-				return false;
-			}
-			if(parts[0].equals("Type")){ //First line should not create an object//
-				continue;	
-			}
-			//based on ordering of csv file//
-			String type = parts[0];
-			String title = parts[1];
-			double price = Double.parseDouble(parts[2]);
-			int year = Integer.parseInt(parts[3]);
-			
-			
-			
-			
-			//see if this errors out(put everything in try if so) if an incorrect enum is passed//
-			Genre genre = Genre.valueOf(parts[4]);
-			
-			switch(type) { //creates product based on their type and adds to ArrayList//
-			case "CD":
-				CDRecordProduct product = new CDRecordProduct(title,price,year,genre);
-				p.add(product);
-				break;
-			case "Vinyl":
-				VinylRecordProduct product = new VinylRecordProduct(title,price,year,genre);
-				p.add(product);
-				break;
-			case "Tape":
-				TapeRecordProduct product = new TapeRecordProduct(title,price,year,genre);
-				p.add(product);
-				break;
-			}
-		}
-		if(p.size() == 0) { //Check for if something went wrong//
-			System.out.println("File is either empty or has been formatted incorrectly.");
-			System.out.println("Make sure the file is in 'Type','Title','Price','Year','Genre' format.");
-			return false;
-		}
-		
-		this.products = p;
-		sc.close();
-		input.close();
-		return true;
 	}
 	
 	//required//
