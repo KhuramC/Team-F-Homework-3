@@ -212,7 +212,7 @@ public class StockManagerSingleton {
 	 */
 	public ArrayList<VinylRecordProduct>getVinylRecordList(ArrayList<MediaProduct> productList){
 		ArrayList<VinylRecordProduct> vinylArray = new ArrayList<VinylRecordProduct>();
-		//Use iterator to iterate and remove matching product.
+		//Use iterator to iterate and add matching product to list.
 		if(productList.isEmpty()) {
 			return null;
 		}
@@ -233,7 +233,7 @@ public class StockManagerSingleton {
 	 */
 	public ArrayList<CDRecordProduct>getCDRecordsList(ArrayList<MediaProduct> productList){
 		ArrayList<CDRecordProduct> cdArray = new ArrayList<CDRecordProduct>();
-		//Use iterator to iterate and remove matching product.
+		//Use iterator to iterate and add matching product to list.
 		if(productList.isEmpty()) {
 			return null;
 		}
@@ -255,7 +255,7 @@ public class StockManagerSingleton {
 	 */
 	public ArrayList<TapeRecordProduct>getTapeRecordList(ArrayList<MediaProduct> productList){
 		ArrayList<TapeRecordProduct> tapeArray = new ArrayList<TapeRecordProduct>();
-		//Use iterator to iterate and remove matching product.
+		//Use iterator to iterate and add matching product to list.
 		if(productList.isEmpty()) {
 			return null;
 		}
