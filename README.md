@@ -17,7 +17,7 @@ The program will read the inventory data from the file `inventory.csv` and displ
 
 * Team Members *
 
-Alon Barzilay
+Alon Barzilay  
 Hipolito Sanchez  
 Khuram Choudhry  
 Trenton Roney  
