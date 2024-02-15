@@ -201,7 +201,7 @@ public class StockManagerSingleton {
 		if(productList.isEmpty()) {
 			return null;
 		}
-		Iterator<MediaProduct> iterator = products.iterator();
+		Iterator<MediaProduct> iterator = productList.iterator();
 			while (iterator.hasNext()) {
 				MediaProduct existingProduct = iterator.next();
 				
@@ -222,7 +222,7 @@ public class StockManagerSingleton {
 		if(productList.isEmpty()) {
 			return null;
 		}
-		Iterator<MediaProduct> iterator = products.iterator();
+		Iterator<MediaProduct> iterator = productList.iterator();
 			while (iterator.hasNext()) {
 				MediaProduct existingProduct = iterator.next();
 				
@@ -244,7 +244,7 @@ public class StockManagerSingleton {
 		if(productList.isEmpty()) {
 			return null;
 		}
-		Iterator<MediaProduct> iterator = products.iterator();
+		Iterator<MediaProduct> iterator = productList.iterator();
 			while (iterator.hasNext()) {
 				MediaProduct existingProduct = iterator.next();
 				
