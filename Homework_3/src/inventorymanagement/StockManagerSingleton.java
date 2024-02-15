@@ -24,8 +24,10 @@ public class StockManagerSingleton {
 	 */
 	private StockManagerSingleton() {
 	}
-	
-	
+	// Gets current list of products
+	public ArrayList<MediaProduct> getProducts() {
+	    return products;
+	} 
 	/**
 	 * Creates a single instance if it has not been created yet.
 	 * @return the instance of the StockManagerSingleton.
@@ -113,8 +115,7 @@ public class StockManagerSingleton {
 	}
 	
 	//required//
-	public boolean updateItemPrice(MediaProduct product, double newPrice) {
-		product.setPrice(newPrice);
+	public boolean updateItemPrice(MediaProduct product, double newPrice) {		product.setPrice(newPrice);
 		return true;
 	}
 	
@@ -154,7 +155,7 @@ public class StockManagerSingleton {
 		return false;
 	}
 	
-	 // Saves the updated inventory back to the CSV file located at inventoryFilePath.
+	 // Saves the updated inventory back to the inventory.csv
 	public boolean saveStock() {
 		try {
 	        BufferedWriter bw = new BufferedWriter(new FileWriter(inventoryFilePath));
