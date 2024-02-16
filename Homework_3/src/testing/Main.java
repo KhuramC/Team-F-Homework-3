@@ -1,11 +1,7 @@
 package testing;
 
 import inventorymanagement.StockManagerSingleton;
-import products.CDRecordProduct;
-import products.Genre;
-import products.MediaProduct;
-import products.VinylRecordProduct;
-import products.TapeRecordProduct;
+import products.*;
 import java.util.ArrayList;
 
 public class Main {
