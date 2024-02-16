@@ -59,7 +59,7 @@ public class Main {
         stockManager.printListOfMediaProduct(stockManager.getProducts());
 
 //     // Test getMediaProductBelowPrice method. Uncomment when needed for testing. Can change maxPrice as needed.
-//        double maxPrice = 25.0;
+//        int maxPrice = 25;
 //        System.out.println("Products below $" + maxPrice + ":");
 //        stockManager.printListOfMediaProduct(stockManager.getMediaProductBelowPrice(maxPrice));
         
